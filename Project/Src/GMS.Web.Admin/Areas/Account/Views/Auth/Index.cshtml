@@ -1,0 +1,172 @@
+﻿@using GMS.Web
+@using GMS.Core.Config
+@model GMS.Account.Contract.Role
+@{
+    ViewBag.Title = "Welcome";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var adminMenuConfig = CachedConfigContext.Current.AdminMenuConfig;
+}
+@section PageSpecificJavascriptIncludes{
+		
+    <script type="text/javascript">
+        $("#navigation").hide();
+        $(".sub").show();
+        $(".has-sub>a").each(function () {
+            $(this).css("background-color", "#313131");
+        });
+   </script>
+}
+
+<div class="p10 m10">
+	<!-- BEGIN BLOCKQUOTES PORTLET-->
+	<div class="portlet">
+		<div class="portlet-title">
+
+			<h4><i class="icon-reorder"></i>@CachedConfigContext.Current.SettingConfig.WebSiteTitle</h4>
+			<div class="tools">
+				<a href="javascript:;" class="collapse"></a>
+				&nbsp;
+				<a href="javascript:;" class="remove"></a>
+			</div>
+		</div>
+
+        <div class="portlet-body">
+            <h3></h3>
+            <blockquote>
+                <p>欢迎使用 @CachedConfigContext.Current.SettingConfig.WebSiteTitle !</p>
+            </blockquote>
+            @*<div style="outline:1px solid red;margin:auto;width:70%;">
+            <div style="width:400px;">
+                <img src="~/images/1.jpg" />
+            </div>
+        </div>*@
+            <style>
+                #toubu1 {
+                    width: 1000px;
+                    margin: 20px auto;
+                    height: 290px;
+                    position: relative;
+                }
+
+                #pp1, #pp2, #pp3 {
+                    height: 200px;
+                    width: 320px;
+                    position: absolute;
+                    border-radius: 10px;
+                }
+
+                #pp1 {
+                    left: 20px;
+                    top: 40px;
+                }
+
+                #pp2 {
+                    z-index: 990;
+                    top: 20px;
+                    left: 290px;
+                    width: 420px;
+                    height: 240px;
+                }
+
+                #pp3 {
+                    right: 20px;
+                    top: 40px;
+                }
+            </style>
+            <div id="toubu1">
+                <li id="pp1" class="toubb" style="top: 20px; left: 290px; width: 420px; height: 240px; z-index: 10;"><img src="~/images/0.jpg" style="border-radius: 10px;"></li>
+                <li id="pp2" class="toubb" style="left: 670px; top: 40px; height: 200px; width: 320px; z-index: 5;"><img src="~/images/1.jpg" style="border-radius: 10px;"></li>
+                <li id="pp3" class="toubb" style="top: 40px; left: 20px; width: 320px; height: 200px; z-index: 5;"><img src="~/images/0.jpg" style="border-radius: 10px;"></li>
+            </div>
+            <script>
+                var y = 0;
+                var pp = 0;
+                var ttt = setInterval(function () {
+                    if (pp == 0) {
+                        if (y == 0) {
+                            $('#pp2').animate({ 'z-index': '5', 'left': '670px', 'top': '40px', 'height': '200px', 'width': '320px' }, 600);
+                            $('#pp3').animate({ 'z-index': '10', 'top': '20px', 'left': '290px', 'width': '420px', 'height': '240px' }, 600);
+                        } else if (y == 1) {
+                            $('#pp3').animate({ 'z-index': '5', 'top': '40px', 'left': '20px', 'width': '320px', 'height': '200px' }, 600);
+                            $('#pp1').animate({ 'z-index': '10', 'top': '20px', 'left': '290px', 'width': '420px', 'height': '240px' }, 600);
+                        } else if (y == 2) {
+                            $('#pp1').animate({ 'z-index': '5', 'left': '670px', 'top': '40px', 'height': '200px', 'width': '320px' }, 600);
+                            $('#pp2').animate({ 'z-index': '10', 'top': '20px', 'left': '290px', 'width': '420px', 'height': '240px' }, 600);
+                        } else if (y == 3) {
+                            $('#pp2').animate({ 'z-index': '5', 'left': '20px', 'top': '40px', 'height': '200px', 'width': '320px' }, 600);
+                            $('#pp3').animate({ 'z-index': '10', 'top': '20px', 'left': '290px', 'width': '420px', 'height': '240px' }, 600);
+                            y = 0;
+                            pp++;
+                        }
+                        y++;
+                    } else if (pp == 1) {
+                        if (y == 0) {
+                            $('#pp3').animate({ 'z-index': '5', 'left': '670px', 'top': '40px', 'height': '200px', 'width': '320px' }, 600);
+                            $('#pp2').animate({ 'z-index': '10', 'top': '20px', 'left': '290px', 'width': '420px', 'height': '240px' }, 600);
+                            $('#pp1').animate({ 'z-index': '5', 'top': '40px', 'left': '20px', 'width': '320px', 'height': '200px' }, 600);
+                        }
+                        y = 0;
+                        pp = 0;
+                    }
+                }, 1800)
+            </script>
+        </div>
+	</div>
+	<!-- END BLOCKQUOTES PORTLET-->
+</div>
+
+
+<div class="portlet box m10">
+	<div class="popover-title">
+		<h4><i class="icon-reorder"></i>&nbsp;<strong>七日内最受欢迎 - Top20</strong></h4>
+		<div class="tools">
+			<a href="javascript:;" class="collapse"></a>
+		</div>
+	</div>
+	<style>
+        .portlet-body li{
+			display:inline-block;
+        }
+	</style>
+	<div class="portlet-body">
+        <ul>
+            @*@foreach (var group in adminMenuConfig.AdminMenuGroups)
+        {
+            <li><h4>@group.Name</h4></li>
+            <ul class="dl-horizontal unstyled">
+            @foreach (var menu in group.AdminMenuArray)
+            {
+                <li class="m10 floatleft"><a href="@menu.Url" class="btn red-stripe">@menu.Name 　<span class="muted">@menu.Info</span></a></li>
+            }
+            </ul>
+        }*@
+
+            @for (int i = 0; i < 20; i++)
+            {
+                <li style="margin:10px;">
+                    <div style="width:300px;">
+                        <a href="/Account/Lu/Index">
+                            <div><img src="~/images/0.jpg" /></div>
+                            <div style="margin-top:10px;">
+                                <label>菜系：鲁菜</label>
+                                <label>菜名：红烧鲤鱼</label>
+                                <label>已点：2000000 份</label>
+                                <label>浏览量：35555555</label>
+                                <label>推荐量：1599999</label>
+                            </div>
+                        </a>
+                    </div>
+                </li>
+            }
+
+        </ul>
+	</div>
+</div>
+
+
+
+
+
+
+
+

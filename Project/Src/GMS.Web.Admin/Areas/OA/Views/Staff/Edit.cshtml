@@ -1,0 +1,87 @@
+﻿@using GMS.Framework.Contract
+@using GMS.Framework.Web.Controls
+@using GMS.Framework.Utility
+@using GMS.OA.Contract
+@using GMS.Web
+@model Staff
+@{
+    Layout = "~/Views/Shared/_Layout.Edit.cshtml";
+}
+@section PageSpecificStyleSheetIncludes{
+    <style type="text/css">
+        .controls label
+        {
+            display:inline;
+        }
+    </style>
+}
+@section PageSpecificJavascriptIncludes{
+    <script type="text/javascript">
+        $("#BirthDate").datepicker();
+   </script>
+}
+@section MainContent{
+<div class="portlet-body form-horizontal form-bordered form-row-stripped">
+    <div class="row-fluid"> 
+            <div class="alert alert-info">
+                <button class="close" data-dismiss="alert"></button>
+                @*分配到部门请到<strong>“组织结构管理”</strong>菜单操作！*@
+            </div>
+
+            <div class="control-group">
+                <label class="control-label"><span class="required">*</span>食谱名：</label>
+                <div class="controls">
+                    <input name="Name" type="text" value="张一易">
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label">部门：</label>
+                <div class="controls">
+                    <select class="form-control">
+                        <option value="1">早餐</option>
+                        <option value="2">午参</option>
+                        <option value="3" selected="selected">晚餐</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label">制定人/单位：</label>
+                <div class="controls">
+                    <input name="Name" type="text" value="张一易">
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label">制定日期：</label>
+                <div class="controls">
+                    <input style="width:200px;" name="BirthDate" type="date" value="1983-12-02">
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label">审核日期：</label>
+                <div class="controls">
+                    <input style="width:200px;" name="BirthDate" type="date" value="1983-12-02">
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label">通过日期：</label>
+                <div class="controls">
+                    <input style="width:200px;" name="BirthDate" type="date" value="1983-12-02">
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label">食谱说明：</label>
+                <div class="controls">
+                <textarea style="margin: 0px; width: 560px; height: 130px;"></textarea>
+                </div>
+            </div>
+            
+    </div>
+</div>
+}
+

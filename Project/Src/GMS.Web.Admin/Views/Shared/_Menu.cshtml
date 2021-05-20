@@ -1,0 +1,92 @@
+﻿@using GMS.Core.Config
+@using GMS.Web.Admin.Common
+@{
+    @*var adminMenuConfig = CachedConfigContext.Current.AdminMenuConfig;
+    var permissions = AdminUserContext.Current.LoginInfo.BusinessPermissionList.Select(p=>p.ToString());*@
+}
+
+<div class="page-sidebar nav-collapse collapse">
+    <!-- BEGIN SIDEBAR MENU -->
+    <ul>
+        <li>
+            <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+            <div class="sidebar-toggler hidden-phone"><h3 style="margin-left:-160px; line-height:23px;  color:#999; ">人气食谱菜单</h3></div>
+            <!-- BEGIN SIDEBAR TOGGLER BUTTON -->
+        </li>
+        <li>
+            <!-- BEGIN RESPONSIVE QUICK SEARCH FORM -->
+            <form class="sidebar-search dn">
+                <div class="input-box">
+                    <a href="javascript:;" class="remove"></a>
+                    <input type="text" placeholder="Search...">
+                    <input type="button" class="submit" value=" ">
+                </div>
+            </form>
+            <!-- END RESPONSIVE QUICK SEARCH FORM -->
+        </li>
+        <li class="">
+            <a href="/Account/Auth/Index" title="欢迎登录人气食谱系统！">
+                <i class="icon-home"></i>
+                <span class="title">食谱首页</span>
+                <span class="selected"></span>
+            </a>
+        </li>
+        <li class="has-sub">
+            <a href="javascript:;" style="background-color: rgb(49, 49, 49);">
+                <i class="icon-cog"></i>
+                <span class="title">菜系</span>
+                <span class="arrow open"></span>
+            </a>
+            <ul class="sub" style="display: block;">
+                <li><a href="/Account/Lu/Index" title="添加修改删除鲁菜">鲁菜</a></li>
+                <li><a href="/Account/Chuan/Index" title="添加修改删除川菜">川菜</a></li>
+                <li><a href="/Account/Yue/Index" title="添加修改删除粤菜">粤菜</a></li>
+                <li><a href="/Account/Min/Index" title="添加修改删除闽菜">闽菜</a></li>
+                <li><a href="/Account/Su/Index" title="添加修改删除苏菜">苏菜</a></li>
+                <li><a href="/Account/Zhe/Index" title="添加修改删除浙菜">浙菜</a></li>
+                <li><a href="/Account/Xiang/Index" title="添加修改删除湘菜">湘菜</a></li>
+                <li><a href="/Account/Hui/Index" title="添加修改删除徽菜">徽菜</a></li>
+            </ul>
+        </li>
+        <li class="has-sub">
+            <a href="javascript:;" style="background-color: rgb(49, 49, 49);">
+                <i class="icon-leaf"></i>
+                <span class="title">菜品分析榜</span>
+                <span class="arrow open"></span>
+            </a>
+            <ul class="sub" style="display: block;">
+                <li><a href="/Cms/Article/Tui" title="添加修改删除推荐">推荐排行</a></li>
+                <li><a href="/Cms/Article/Hao" title="添加修改删除好评">好评排行</a></li>
+                <li><a href="/Cms/Article/Cha" title="添加修改删除差评">差评排行</a></li>
+            </ul>
+        </li>
+        <li class="has-sub">
+            <a href="javascript:;" style="background-color: rgb(49, 49, 49);">
+                <i class="icon-sitemap"></i>
+                <span class="title">计价管理</span>
+                <span class="arrow open"></span>
+            </a>
+            <ul class="sub" style="display: block;">
+                <li><a href="/OA/Staff/Index" title="添加修改删除食谱审核">食谱审核</a></li>
+                <li><a href="/OA/Branch/Index" title="添加修改删除需求计划">需求计划</a></li>
+            </ul>
+        </li>
+        <li class="has-sub">
+            <a href="javascript:;" style="background-color: rgb(49, 49, 49);">
+                <i class="icon-phone-sign"></i>
+                <span class="title">CRM管理</span>
+                <span class="arrow open"></span>
+            </a>
+            <ul class="sub" style="display: block;">
+                <li><a href="/Crm/VisitRecord/Index" title="添加修改删除来访来电">来访来电</a></li>
+                <li><a href="/Crm/Customer/Index" title="添加修改删除客户">客户管理</a></li>
+                <li><a href="/Crm/Project/Index" title="添加修改删除项目">项目管理</a></li>
+                <li><a href="/Crm/Analysis/Index" title="查看业绩统计">业绩统计</a></li>
+                <li><a href="/Crm/Analysis/VisitStatistics" title="查看来电统计">来电统计</a></li>
+            </ul>
+        </li>
+
+
+    </ul>
+    <!-- END SIDEBAR MENU -->
+</div>

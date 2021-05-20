@@ -1,0 +1,129 @@
+﻿@using GMS.Web
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!-->
+<html lang="en">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <meta charset="utf-8" />
+    <title>用户登录 - @GMS.Core.Config.CachedConfigContext.Current.SettingConfig.WebSiteTitle</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+    <link href="@Url.StaticFile("/assets/bootstrap/css/bootstrap.min.css")" rel="stylesheet" />
+    <link href="@Url.StaticFile("/assets/css/metro.css")" rel="stylesheet" />
+    <link href="@Url.StaticFile("/assets/font-awesome/css/font-awesome.css")" rel="stylesheet" />
+    <link href="@Url.StaticFile("/assets/css/style.css")" rel="stylesheet" />
+    <link href="@Url.StaticFile("/assets/css/style_responsive.css")" rel="stylesheet" />
+    <link href="@Url.StaticFile("/assets/css/style_default.css")" rel="stylesheet" id="style_color" />
+    <link rel="stylesheet" type="text/css" href="@Url.StaticFile("/assets/uniform/css/uniform.default.css")" />
+    <link rel="stylesheet" type="text/css" href="@Url.StaticFile("/content/styles/admin.main.css")" />
+</head>
+<!-- END HEAD -->
+<!-- BEGIN BODY -->
+<body class="login">
+    <!-- BEGIN LOGO -->
+    <div class="logo">
+        <img src="@Url.StaticFile("/content/images/logo-big.png")" alt="" />
+    </div>
+    <!-- END LOGO -->
+    <!-- BEGIN LOGIN -->
+    <div class="content" style="height:420px;">
+        <!-- BEGIN LOGIN FORM -->
+        @using (Html.BeginForm())
+        {
+            <h3 class="form-title">请输入您的帐号和密码</h3>
+            <div class="alert alert-error hide">
+                <button class="close" data-dismiss="alert"></button>
+                <span>Enter any username and passowrd.</span>
+            </div>
+            <div class="control-group">
+                <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+                <div class="controls">
+                    <div>
+                        <select style="width:290px;" name="BmId" onclick="Dj()" class="form-control">
+                            <option value="0">请选择部门</option>
+                            <option value="1">早餐</option>
+                            <option value="2">午参</option>
+                            <option value="3">晚餐</option>
+                        </select>
+                    </div>
+                    <span id="Se" class="field-validation-error" data-valmsg-for="BmId" data-valmsg-replace="true"><span for="BmId" generated="true">请选择部门</span></span>
+                    <script>
+                        function Dj() {
+                            if ($("select[name='BmId']").val() == 0) {
+                                $("#Se").attr("class", "field-validation-error");
+                                $("#Submits").attr("disabled", "disabled");
+                            } else {
+                                $("#Se").attr("class", "field-validation-valid");
+                                $("#Submits").removeAttr("disabled");
+                            }
+                        }
+                    </script>
+                </div>
+            </div>
+            <div class="control-group">
+                <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+                <div class="controls">
+                    <div class="input-icon left">
+                        <i class="icon-user"></i>
+                        @Html.TextBox("username", "admin", new { @class = "m-wrap placeholder-no-fix", placeholder = "用户名", data_val_required = "用户名不能为空", data_val = "true" })
+                    </div>
+                    <span class="help-block">@Html.ValidationMessage("username")</span>
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <div class="input-icon left">
+                        <i class="icon-lock"></i>
+                        @Html.Password("password", "123456", new { @class = "m-wrap placeholder-no-fix", placeholder = "密码", data_val_required = "密码不能为空", data_val = "true" })
+                    </div>
+                    <span class="help-block">@Html.ValidationMessage("password")</span>
+                </div>
+            </div>
+            <div class="form-actions">
+                <div>
+                    <button type="submit" id="Submits" class="btn green pull-right" disabled>登录 <i class="m-icon-swapright m-icon-white"></i></button>
+                </div>
+                <script>
+
+                </script>
+                <div>@Html.ValidationMessage("error") </div>
+            </div>
+        }
+
+    <form action="/Account/Auth/Logins" method="get">
+        <div style="margin-top:-20px;">
+            <button type="submit" class="btn green pull-right">普通官兵快捷登录入口 <i class="m-icon-swapright m-icon-white"></i></button>
+        </div>
+    </form>
+
+    </div>
+    <!-- END LOGIN -->
+    <!-- BEGIN COPYRIGHT -->
+    <div class="copyright">
+        © 2021 人气食谱 版权信息
+    </div>
+    <!-- END COPYRIGHT -->
+    <!-- BEGIN JAVASCRIPTS -->
+    <script src="@Url.StaticFile("/assets/js/jquery-1.8.3.min.js")"></script>
+    <script src="@Url.StaticFile("/assets/bootstrap/js/bootstrap.min.js")"></script>
+    <script src="@Url.StaticFile("/assets/js/jquery.blockui.js")"></script>
+    <script src="@Url.StaticFile("/assets/js/app.js")"></script>
+    <script type="text/javascript" src="@Url.StaticFile("/content/scripts/jquery.validate.min.js")"></script>
+    <script type="text/javascript" src="@Url.StaticFile("/content/scripts/jquery.validate.unobtrusive.min.js")"></script>
+    <script>
+        jQuery(document).ready(function () {
+            App.initLogin();
+        });
+    </script>
+    <!-- END JAVASCRIPTS -->
+</body>
+<!-- END BODY -->
+</html>

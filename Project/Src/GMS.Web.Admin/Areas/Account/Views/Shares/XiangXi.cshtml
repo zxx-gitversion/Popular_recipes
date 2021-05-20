@@ -1,0 +1,81 @@
+﻿@using GMS.Framework.Contract
+@using GMS.Framework.Web.Controls
+@using GMS.Account.Contract
+@model Role
+@{
+    Layout = "~/Views/Shared/_Layout.Edit.cshtml";
+}
+@section PageSpecificStyleSheetIncludes{
+    <style type="text/css"> 
+        
+    </style>
+}
+@section PageSpecificJavascriptIncludes{
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+        });
+   </script>
+}
+@section MainContent{
+    <div class="portlet-body form-horizontal form-bordered form-row-stripped">
+        <div class="row-fluid">
+
+            <div class="control-group">
+                <label class="control-label"><span class="required">*</span>菜系：</label>
+                <div class="controls">
+                    @Html.TextBoxFor(m => m.Name, new { @class = "m-wrap small" })
+                    <span class="help-inline">@Html.ValidationMessageFor(m => m.Name)</span>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label">菜名：</label>
+                <div class="controls">
+                    @Html.TextBoxFor(m => m.Info, new { @class = "m-wrap small" })
+                    <span class="help-inline">@Html.ValidationMessageFor(m => m.Info)</span>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label">口味特点：</label>
+                <div class="controls">
+                    @Html.TextBoxFor(m => m.Info, new { @class = "m-wrap small" })
+                    <span class="help-inline">@Html.ValidationMessageFor(m => m.Info)</span>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label">食材定量：</label>
+                <div class="controls">
+                    @Html.TextBoxFor(m => m.Info, new { @class = "m-wrap small" })
+                    <span class="help-inline">@Html.ValidationMessageFor(m => m.Info)</span>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label">烹饪步骤：</label>
+                <div class="controls">
+                    <textarea readonly style="width: 563px; margin: 0px; height: 190px;"></textarea>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label">供应商信息：</label>
+                <div class="controls">
+                    <textarea readonly style="width: 563px; margin: 0px; height: 190px;"></textarea>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label">价格：</label>
+                <div class="controls">
+                    @Html.TextBoxFor(m => m.Info, new { @class = "m-wrap small" })
+                    <span class="help-inline">@Html.ValidationMessageFor(m => m.Info)</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+}
+

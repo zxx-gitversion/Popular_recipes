@@ -1,0 +1,47 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<AdminMenuConfig>
+  <AdminMenuGroups>
+    <AdminMenuGroup name="食谱首页" url="/Account/Auth/Index" icon="icon-home" info="欢迎登录人气食谱系统！">
+    </AdminMenuGroup>
+    <AdminMenuGroup name="菜系" icon="icon-cog">
+      <AdminMenuArray>
+        <AdminMenu name="鲁菜" url="/Account/Lu/Index" info="添加修改删除鲁菜" permission="AccountManage_Role"/>
+        <AdminMenu name="川菜" url="/Account/Chuan/Index" info="添加修改删除川菜" permission="AccountManage_Role" />
+        <AdminMenu name="粤菜" url="/Account/Yue/Index" info="添加修改删除粤菜" permission="AccountManage_Role" />
+        <AdminMenu name="闽菜" url="/Account/Min/Index" info="添加修改删除闽菜" permission="AccountManage_Role" />
+        <AdminMenu name="苏菜" url="/Account/Su/Index" info="添加修改删除苏菜" permission="AccountManage_Role" />
+        <AdminMenu name="浙菜" url="/Account/Zhe/Index" info="添加修改删除浙菜" permission="AccountManage_Role" />
+        <AdminMenu name="湘菜" url="/Account/Xiang/Index" info="添加修改删除湘菜" permission="AccountManage_Role" />
+        <AdminMenu name="徽菜" url="/Account/Hui/Index" info="添加修改删除徽菜" permission="AccountManage_Role" />
+      </AdminMenuArray>
+    </AdminMenuGroup>
+
+    <AdminMenuGroup name="菜品分析榜" icon="icon-leaf">
+      <AdminMenuArray>
+        <AdminMenu name="推荐排行" url="/Cms/Article/Tui" info="添加修改删除推荐" permission="CmsManage_Article" />
+        <AdminMenu name="好评排行" url="/Cms/Article/Hao" info="添加修改删除好评" permission="CmsManage_Article" />
+        <AdminMenu name="差评排行" url="/Cms/Article/Cha" info="添加修改删除差评" permission="CmsManage_Article" />
+        
+      </AdminMenuArray>
+    </AdminMenuGroup>
+
+    <AdminMenuGroup name="计价管理" icon="icon-sitemap">
+      <AdminMenuArray>
+        <AdminMenu name="食谱审核" url="/OA/Staff/Index" info="添加修改删除食谱审核" permission="OAManage_Staff" />
+        <AdminMenu name="需求计划" url="/OA/Branch/Index" info="添加修改删除需求计划" permission="OAManage_Branch" />
+        <!--<AdminMenu name="组织结构管理" url="/OA/Org/Index" info="管理部门从属关系及员工所属部门" permission="OAManage_Org" />-->
+      </AdminMenuArray>
+    </AdminMenuGroup>
+
+    <AdminMenuGroup name="CRM管理" icon="icon-phone-sign">
+      <AdminMenuArray>
+        <AdminMenu name="来访来电" url="/Crm/VisitRecord/Index" info="添加修改删除来访来电" permission="CrmManage_VisitRecord" />
+        <AdminMenu name="客户管理" url="/Crm/Customer/Index" info="添加修改删除客户" permission="CrmManage_Customer" />
+        <AdminMenu name="项目管理" url="/Crm/Project/Index" info="添加修改删除项目" permission="CrmManage_Project" />
+        <AdminMenu name="业绩统计" url="/Crm/Analysis/Index" info="查看业绩统计" permission="CrmManage_Analysis" />
+        <AdminMenu name="来电统计" url="/Crm/Analysis/VisitStatistics" info="查看来电统计" permission="CrmManage_Analysis" />
+      </AdminMenuArray>
+    </AdminMenuGroup>
+
+  </AdminMenuGroups>
+</AdminMenuConfig>
