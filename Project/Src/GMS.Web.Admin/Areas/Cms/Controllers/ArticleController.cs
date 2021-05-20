@@ -14,11 +14,11 @@ namespace GMS.Web.Admin.Areas.Cms.Controllers
 
         public ActionResult Tui(ArticleRequest request)
         {
-            var channelList = this.CmsService.GetChannelList(new ChannelRequest() { IsActive = true });
-            this.ViewBag.ChannelId = new SelectList(channelList, "ID", "Name");
+            //var channelList = this.CmsService.GetChannelList(new ChannelRequest() { IsActive = true });
+            ////this.ViewBag.ChannelId = new SelectList(channelList, "ID", "Name");
 
-            var result = this.CmsService.GetArticleList(request);
-            return View(result);
+            //var result = this.CmsService.GetArticleList(request);
+            return View();
         }
 
         public ActionResult Hao(ChannelRequest request)

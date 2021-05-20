@@ -16,7 +16,7 @@ namespace GMS.Web.Admin.Areas.Account.Controllers
             var model = this.AccountService.GetRole(id);
 
             var businessPermissionList = EnumHelper.GetItemValueList<EnumBusinessPermission>();
-            this.ViewBag.BusinessPermissionList = new SelectList(businessPermissionList, "Key", "Value", string.Join(",", model.BusinessPermissionList.Select(p => (int)p)));
+            //this.ViewBag.BusinessPermissionList = new SelectList(businessPermissionList, "Key", "Value", string.Join(",", model.BusinessPermissionList.Select(p => (int)p)));
 
             return View(model);
         }
@@ -37,12 +37,12 @@ namespace GMS.Web.Admin.Areas.Account.Controllers
 
         // GET: /Account/Role/Edit/5
         //点评
-        public ActionResult DianPing(int id)
+        public ActionResult DianPing(int id=1)
         {
             var model = this.AccountService.GetRole(id);
 
             var businessPermissionList = EnumHelper.GetItemValueList<EnumBusinessPermission>();
-            this.ViewBag.BusinessPermissionList = new SelectList(businessPermissionList, "Key", "Value", string.Join(",", model.BusinessPermissionList.Select(p => (int)p)));
+            //this.ViewBag.BusinessPermissionList = new SelectList(businessPermissionList, "Key", "Value", string.Join(",", model.BusinessPermissionList.Select(p => (int)p)));
 
             return View(model);
         }
@@ -68,7 +68,7 @@ namespace GMS.Web.Admin.Areas.Account.Controllers
             var model = this.AccountService.GetRole(id);
 
             var businessPermissionList = EnumHelper.GetItemValueList<EnumBusinessPermission>();
-            this.ViewBag.BusinessPermissionList = new SelectList(businessPermissionList, "Key", "Value", string.Join(",", model.BusinessPermissionList.Select(p => (int)p)));
+            //this.ViewBag.BusinessPermissionList = new SelectList(businessPermissionList, "Key", "Value", string.Join(",", model.BusinessPermissionList.Select(p => (int)p)));
 
             return View(model);
         }
@@ -94,7 +94,7 @@ namespace GMS.Web.Admin.Areas.Account.Controllers
             var model = this.AccountService.GetRole(id);
 
             var businessPermissionList = EnumHelper.GetItemValueList<EnumBusinessPermission>();
-            this.ViewBag.BusinessPermissionList = new SelectList(businessPermissionList, "Key", "Value", string.Join(",", model.BusinessPermissionList.Select(p => (int)p)));
+            //this.ViewBag.BusinessPermissionList = new SelectList(businessPermissionList, "Key", "Value", string.Join(",", model.BusinessPermissionList.Select(p => (int)p)));
 
             return View(model);
         }
