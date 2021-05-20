@@ -67,36 +67,37 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var m in Model)
+        @*@foreach (var m in Model)*@
+        @for(int i=0;i<10;i++)
         {
         <tr>
             <td>
-                <input type="checkbox" class="checkboxes" name='ids' value='@m.ID' />
+                <input type="checkbox" class="checkboxes" name='ids' value='@i' />
             </td>
             <td>
-                @m.Name
+                @i
             </td>
             <td>
-                @EnumHelper.GetEnumTitle((EnumPosition)m.Position)
+                哈哈哈
             </td>
             <td>
-                @(m.Branch == null ? "未分配" : m.Branch.Name)
+                哈哈哈哈
             </td>
             <td>
-                @m.BirthDate.ToCnDataString()
+                哈哈哈哈哈
             </td>
             <td>
-                @m.BirthDate.ToCnDataString()
+                哈哈哈哈哈哈
             </td>
             <td>
-                @m.BirthDate.ToCnDataString()
+                哈哈哈哈哈哈哈
             </td>
             <td>
-                <a class="btn mini purple thickbox" title='食谱详细信息' href="/OA/Staff/ReadOny/@m.ID?TB_iframe=true&height=600&width=700">
+                <a class="btn mini purple thickbox" title='食谱详细信息' href="/OA/Staff/ReadOny/@i?TB_iframe=true&height=600&width=700">
                     <i class="icon-edit"></i>
                     详情
                 </a>
-                <a class="btn mini purple thickbox" title='编辑食谱信息' href="@Url.Action("Edit", new { id = m.ID })?TB_iframe=true&height=600&width=700">
+                <a class="btn mini purple thickbox" title='编辑食谱信息' href="@Url.Action("Edit", new { id = @i })?TB_iframe=true&height=600&width=700">
                     <i class="icon-edit"></i>
                     编辑
                 </a>
