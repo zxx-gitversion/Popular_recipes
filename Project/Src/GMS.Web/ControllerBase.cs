@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Web.Mvc;
 using GMS.Account.Contract;
 using GMS.Cms.Contract;
-using GMS.Core.Log;
+//using GMS.Core.Log;
 using GMS.Crm.Contract;
 using GMS.Framework.Web;
 using GMS.OA.Contract;
@@ -55,7 +55,7 @@ namespace GMS.Web
                 exceptionContext = exceptionContext,
             };
 
-            Log4NetHelper.Error(LoggerType.WebExceptionLog, message, exception);
+            //Log4NetHelper.Error(LoggerType.WebExceptionLog, message, exception);
         }
 
         public IDictionary<string, object> CurrentActionParameters { get; set; }

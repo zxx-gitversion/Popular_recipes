@@ -1,6 +1,6 @@
 ﻿using System;
 using Castle.DynamicProxy;
-using GMS.Core.Log;
+//using GMS.Core.Log;
 using GMS.Framework.Contract;
 
 namespace GMS.Core.Service
