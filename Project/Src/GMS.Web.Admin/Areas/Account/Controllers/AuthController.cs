@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Web.Mvc;
-using GMS.Account.Contract;
 using GMS.Framework.Contract;
 using GMS.Framework.Web;
 using GMS.Web.Admin.Common;
+using System.Linq;
 
 namespace GMS.Web.Admin.Areas.Account.Controllers
 {
@@ -81,7 +81,8 @@ namespace GMS.Web.Admin.Areas.Account.Controllers
         
         public ActionResult Index()
         {
-            
+            Popular_recipesEntities popular = new Popular_recipesEntities();
+            var li = from p in popular.Cuisine select p;
             return View();
         }
     }
