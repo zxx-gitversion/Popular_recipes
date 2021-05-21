@@ -121,7 +121,7 @@
     <Compile Include="Cuisine.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Evaluate.cs">
+    <Compile Include="evaluate.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="FileUpload.ashx.cs">

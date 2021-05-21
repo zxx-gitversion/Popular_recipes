@@ -26,7 +26,7 @@ namespace GMS.Web.Admin
         }
     
         public virtual DbSet<Cuisine> Cuisine { get; set; }
-        public virtual DbSet<Evaluate> Evaluate { get; set; }
+        public virtual DbSet<evaluate> evaluate { get; set; }
         public virtual DbSet<Material> Material { get; set; }
         public virtual DbSet<MaterialType> MaterialType { get; set; }
         public virtual DbSet<Menu> Menu { get; set; }
