@@ -6,13 +6,13 @@
     <AdminMenuGroup name="菜系" icon="icon-cog">
       <AdminMenuArray>
         <AdminMenu name="鲁菜" url="/Account/Lu/Index" info="添加修改删除鲁菜" permission="AccountManage_Role"/>
-        <AdminMenu name="川菜" url="/Account/Chuan/Index" info="添加修改删除川菜" permission="AccountManage_Role" />
-        <AdminMenu name="粤菜" url="/Account/Yue/Index" info="添加修改删除粤菜" permission="AccountManage_Role" />
-        <AdminMenu name="闽菜" url="/Account/Min/Index" info="添加修改删除闽菜" permission="AccountManage_Role" />
-        <AdminMenu name="苏菜" url="/Account/Su/Index" info="添加修改删除苏菜" permission="AccountManage_Role" />
-        <AdminMenu name="浙菜" url="/Account/Zhe/Index" info="添加修改删除浙菜" permission="AccountManage_Role" />
-        <AdminMenu name="湘菜" url="/Account/Xiang/Index" info="添加修改删除湘菜" permission="AccountManage_Role" />
-        <AdminMenu name="徽菜" url="/Account/Hui/Index" info="添加修改删除徽菜" permission="AccountManage_Role" />
+        <AdminMenu name="川菜" url="/Account/Lu/Index" info="添加修改删除川菜" permission="AccountManage_Role" />
+        <AdminMenu name="粤菜" url="/Account/Lu/Index" info="添加修改删除粤菜" permission="AccountManage_Role" />
+        <AdminMenu name="闽菜" url="/Account/Lu/Index" info="添加修改删除闽菜" permission="AccountManage_Role" />
+        <AdminMenu name="苏菜" url="/Account/Lu/Index" info="添加修改删除苏菜" permission="AccountManage_Role" />
+        <AdminMenu name="浙菜" url="/Account/Lu/Index" info="添加修改删除浙菜" permission="AccountManage_Role" />
+        <AdminMenu name="湘菜" url="/Account/Lu/Index" info="添加修改删除湘菜" permission="AccountManage_Role" />
+        <AdminMenu name="徽菜" url="/Account/Lu/Index" info="添加修改删除徽菜" permission="AccountManage_Role" />
       </AdminMenuArray>
     </AdminMenuGroup>
 

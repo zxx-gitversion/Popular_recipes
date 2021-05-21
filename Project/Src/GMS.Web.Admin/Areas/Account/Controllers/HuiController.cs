@@ -30,7 +30,7 @@ namespace GMS.Web.Admin.Areas.Account.Controllers
             var model = this.AccountService.GetRole(id);
 
             var businessPermissionList = EnumHelper.GetItemValueList<EnumBusinessPermission>();
-            this.ViewBag.BusinessPermissionList = new SelectList(businessPermissionList, "Key", "Value", string.Join(",", model.BusinessPermissionList.Select(p => (int)p)));
+            //this.ViewBag.BusinessPermissionList = new SelectList(businessPermissionList, "Key", "Value", string.Join(",", model.BusinessPermissionList.Select(p => (int)p)));
 
             return View(model);
         }
