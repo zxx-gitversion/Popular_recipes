@@ -1,5 +1,4 @@
 ﻿@using GMS.Framework.Contract
-@using GMS.Framework.Utility
 @using GMS.Framework.Web.Controls
 @using GMS.Account.Contract
 
@@ -15,37 +14,34 @@
                 <a class="btn red" id="delete" href="javascript:;">
                     <i class="icon-trash icon-white"></i>删除
                 </a>
-                <a class="btn blue thickbox" title='添加新菜' href="/Account/Shares/XinZeng?TB_iframe=true&height=600&width=800">
+                <a class="btn blue thickbox" title='添加新菜' href="/Account/Shares/XinZengs?TB_iframe=true&height=600&width=800">
                     <i class="icon-plus icon-white"></i> 新增
                 </a>
             }
 
         </div>
     </div>
-    <div class="span8">
-        @using (Html.BeginForm(null, null, null, FormMethod.Get, new { id = "search" }))
-        { 
-        <div class="dataTables_filter">
-            <label>
-                <button type="submit" class="btn">搜索 <i class="icon-search"></i></button>
-            </label>
-            <label>
-                <span>菜名：</span>
-                @*@Html.TextBox("RoleName", null, new { @class = "m-wrap small" })*@
-                <input type="text" class="form-control" placeholder="请输入菜名">
-            </label>
-            @*<label>
-                <span>三餐：</span>
-                <select class="form-control">
-                    <option value="0">请选择</option>
-                    <option value="1">早餐</option>
-                    <option value="2">午参</option>
-                    <option value="3">晚餐</option>
-                </select>
-            </label>*@
-        </div>
-        }
-    </div>
+    @*<div class="span8">
+        <form action="javascript:" id="search" method="get">
+            <div class="dataTables_filter">
+                <label>
+                    <button onclick="Dj()" class="btn">搜索 <i class="icon-search"></i></button>
+                </label>
+                <label>
+                    <span>菜名：</span>
+                    <input type="text" name="name" class="form-control" placeholder="请输入菜名">
+                    <script>
+                        function Dj() {
+                            $.get("/Account/Lu/Index", { id:0,name: $("input[name='name']").val() });
+                        }
+                    </script>
+                </label>
+
+            </div>
+        </form>
+
+        
+    </div>*@
 </div>
 
 @using (Html.BeginForm("Delete", "Lu", FormMethod.Post, new { id = "mainForm" }))
@@ -80,7 +76,51 @@
         </tr>
     </thead>
     <tbody>
-        @for (int i = 0; i < 10; i++)
+
+        @{
+            List<GMS.Web.Admin.Menu> li = (List<GMS.Web.Admin.Menu>)ViewData["MenuList"];
+
+            foreach (var item in li)
+            {
+                <tr>
+                    <td>
+                        @if (true)
+                        {
+                            <input type="checkbox" class="checkboxes" name='ids' value='@item.MenuId' />
+                        }
+                    </td>
+
+                    <td style="width:380px;">
+                        <img style="width:360px;height:240px;" src="@item.Img" />
+                    </td>
+                    <td >
+                        <label style="height:45px;"><h3><strong>菜名：@item.MenuName</strong></h3></label>
+                        <label style="height:40px;"><strong>口味特点：@item.CookingSteps</strong></label>
+                        <label style="height:40px;"><strong>烹饪步骤：@item.trait</strong></label>
+                        <label style="height:40px;"><strong>食材定量：@item.Kg</strong></label>
+                        <label style="height:40px;"><strong>价格：@item.Money</strong></label>
+                    </td>
+                    <td style="padding-left:420px;">
+                        <a id="TuiJian" onclick="TuiJian(@item.MenuId)" style="width:100px;height:40px;line-height:40px;display:block;background-color:#eee;color:black;" class="btn mini purple" title='推荐' href="javascript:"><i class="icon-edit"></i>&nbsp;推荐</a>
+                        <a style="width: 100px; height: 40px; line-height: 40px; display: block; background-color: #eee; color: black;" class="btn mini purple thickbox" title='点评' href="/Account/Shares/DianPing/@item.MenuId?TB_iframe=true&height=550&width=700"><i class="icon-edit"></i>&nbsp;点评</a>
+                        <a style="width: 100px; height: 40px; line-height: 40px; display: block; background-color: #eee; color: black;" class="btn mini purple thickbox" title='详细信息' href="/Account/Shares/XiangXi/@item.MenuId?TB_iframe=true&height=550&width=700"><i class="icon-edit"></i>&nbsp;详细信息</a>
+                        <a style="width: 100px; height: 40px; line-height: 40px; display: block; background-color: #eee; color: black;" class="btn mini purple thickbox" title='编辑资料' href="/Account/Shares/BianJi/@item.MenuId?TB_iframe=true&height=550&width=700"><i class="icon-edit"></i>&nbsp;编辑及权限</a>
+                        <script>
+                            function TuiJian(id) {
+                                alert(1)
+                                $.get("@Url.Action("TuiJian","Shares")", { id: id }, function (data)
+                                {
+                                    
+                                })
+                            }
+                        </script>
+                    </td>
+                </tr>
+            }
+
+        }
+
+        @*@for (int i = 0; i < 10; i++)
         {
             <tr>
                 <td>
@@ -112,7 +152,7 @@
                     </script>
                 </td>
             </tr>
-        }
+        }*@
         <div class="alert alert-warning alert-dismissible" role="alert">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             <strong>以下图片仅供参考，请以实际为准</strong>

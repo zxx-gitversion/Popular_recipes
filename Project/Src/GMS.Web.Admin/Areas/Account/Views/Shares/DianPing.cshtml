@@ -1,7 +1,4 @@
-﻿@using GMS.Framework.Contract
-@using GMS.Framework.Web.Controls
-@using GMS.Account.Contract
-@model Role
+﻿@model GMS.Web.Admin.Menu
 @{
     Layout = "~/Views/Shared/_Layout.Edit.cshtml";
 }
@@ -20,27 +17,24 @@
 @section MainContent{
     <div class="portlet-body form-horizontal form-bordered form-row-stripped">
         <div class="row-fluid">
-            
                 <div class="control-group">
                     <label class="control-label"><span class="required">*</span>菜系：</label>
                     <div class="controls">
-                    @Html.TextBoxFor(m => m.Name, new { @class = "m-wrap small" })
-                    <span class="help-inline">@Html.ValidationMessageFor(m => m.Name)</span>
+                    <input type="text" readonly name="CuisineId" value="@ViewData["CuisineName"]"/>
                     </div>
                 </div>
 
                 <div class="control-group">
                     <label class="control-label">菜名：</label>
                     <div class="controls">
-                    @Html.TextBoxFor(m => m.Info, new { @class = "m-wrap small" })
-                    <span class="help-inline">@Html.ValidationMessageFor(m => m.Info)</span>
+                        <input type="text" readonly name="MenuName" value="@Model.MenuName" />
                     </div>
                 </div>
 
                 <div class="control-group">
                     <label class="control-label">点评内容：</label>
                     <div class="controls">
-                        <textarea style="width: 563px; margin: 0px; height: 223px;"></textarea>
+                        <textarea name="Evaluate" style="width: 563px; margin: 0px; height: 223px;"></textarea>
                     </div>
                 </div>
             

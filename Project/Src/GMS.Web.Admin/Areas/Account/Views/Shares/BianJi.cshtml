@@ -1,13 +1,10 @@
-﻿@using GMS.Framework.Contract
-@using GMS.Framework.Web.Controls
-@using GMS.Account.Contract
-@model Role
+﻿
+@model GMS.Web.Admin.Menu
 @{
     Layout = "~/Views/Shared/_Layout.Edit.cshtml";
 }
 @section PageSpecificStyleSheetIncludes{
-    <style type="text/css"> 
-        
+    <style type="text/css">
     </style>
 }
 @section PageSpecificJavascriptIncludes{
@@ -15,7 +12,7 @@
         $(document).ready(function () {
 
         });
-   </script>
+    </script>
 }
 @section MainContent{
     <div class="portlet-body form-horizontal form-bordered form-row-stripped">
@@ -24,54 +21,58 @@
             <div class="control-group">
                 <label class="control-label"><span class="required">*</span>菜系：</label>
                 <div class="controls">
-                    @Html.TextBoxFor(m => m.Name, new { @class = "m-wrap small" })
-                    <span class="help-inline">@Html.ValidationMessageFor(m => m.Name)</span>
+                    <input   type="text" value="@ViewData["CuisineName"]" name="Cx"/>
                 </div>
             </div>
 
             <div class="control-group">
                 <label class="control-label">菜名：</label>
                 <div class="controls">
-                    @Html.TextBoxFor(m => m.Info, new { @class = "m-wrap small" })
-                    <span class="help-inline">@Html.ValidationMessageFor(m => m.Info)</span>
+                    <input   type="text" value="@Model.MenuName" name="MenuName"/>
                 </div>
             </div>
 
             <div class="control-group">
                 <label class="control-label">口味特点：</label>
                 <div class="controls">
-                    @Html.TextBoxFor(m => m.Info, new { @class = "m-wrap small" })
-                    <span class="help-inline">@Html.ValidationMessageFor(m => m.Info)</span>
+                    <textarea style="width: 563px; margin: 0px; height: 190px;" name="CookingSteps">@Model.CookingSteps</textarea>
                 </div>
             </div>
 
             <div class="control-group">
                 <label class="control-label">食材定量：</label>
                 <div class="controls">
-                    @Html.TextBoxFor(m => m.Info, new { @class = "m-wrap small" })
-                    <span class="help-inline">@Html.ValidationMessageFor(m => m.Info)</span>
+                    <input   type="text" value="@Model.Kg" name="Kg"/>
                 </div>
             </div>
 
             <div class="control-group">
                 <label class="control-label">烹饪步骤：</label>
                 <div class="controls">
-                    <textarea style="width: 563px; margin: 0px; height: 190px;"></textarea>
+                    <textarea   style="width: 563px; margin: 0px; height: 190px;" name="trait">@Model.trait</textarea>
                 </div>
             </div>
 
             <div class="control-group">
                 <label class="control-label">供应商信息：</label>
                 <div class="controls">
-                    <textarea style="width: 563px; margin: 0px; height: 190px;"></textarea>
+                    <textarea   style="width: 563px; margin: 0px; height: 190px;">
+                     清澈的溪水涓涓。
+    　　树上的知了正不停的叫唤，偶尔有一阵风吹来，知了叫的更欢了。
+    　　酷暑的正午。　　本来各家各户应该在家里歇息的，可这个时候，溪边的一个山坡上，牛罗村十二岁以上，五十岁以下的男女老少正在村长的带领下，拿着木棍、扁担、锄头等农具，和下新村的人在对峙。
+    　　“你们让不让开？”　　“不让，凭啥让！”　　“再不让开，就别怪我们不客气了！”　　“来啊，谁怕谁呢！”　　“就是，这是我们牛罗村，后面的牛罗山是我们村的，你们到我们村里抢水，还要不要脸了！”
+    　　两个村的人已经对峙了有两个多小时了，两边寸步不让，一开始还骂骂咧咧的，后面双方嗓子都喊干了，就这么瞪着对面。　　两个村子之所以对峙，不为别的，就是为了水。
+    　　田里的稻苗眼看就要抽穗了，却偏偏两个月没下雨了。　　有经验的老农都感觉得出来，这是要遇上大旱啦。　　面朝黄土背朝天，为了就是田地里的作物，不下雨可怎么行，粮食减产，不说上交公社了，自己村里人都要饿肚子。
+    　　牛罗村的人一听要遇上大旱，立马就紧张起来，果然，没过半个月，就有人半夜来偷水了。　　发现后，牛罗村的人立马组织人夜里巡逻。
+                    </textarea>
                 </div>
             </div>
 
             <div class="control-group">
                 <label class="control-label">价格：</label>
                 <div class="controls">
-                    @Html.TextBoxFor(m => m.Info, new { @class = "m-wrap small" })
-                    <span class="help-inline">@Html.ValidationMessageFor(m => m.Info)</span>
+                    <input   type="text" value="@Model.Money" name="Money" />
+
                 </div>
             </div>
 

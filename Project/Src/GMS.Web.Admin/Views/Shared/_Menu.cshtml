@@ -45,7 +45,7 @@
                     List<GMS.Web.Admin.Cuisine> list = (List<GMS.Web.Admin.Cuisine>)Session["caixi"];
                     foreach (var g in list )
                     {
-                        <li><a href="/Account/Lu/Index?@g.CuisineId" title="添加修改删除川菜">@g.CuisineName</a></li>
+                        <li><a href="/Account/Lu/Index?id=@g.CuisineId" title="添加修改删除 @g.CuisineName">@g.CuisineName</a></li>
                     }
                 }
 

@@ -9,117 +9,95 @@ namespace GMS.Web.Admin.Areas.Account.Controllers
     [Permission(EnumBusinessPermission.AccountManage_Role)]
     public class SharesController : AdminControllerBase
     {
-        // GET: /Account/Role/Edit/5
-        //推荐
-        public ActionResult TuiJian(int id)
-        {
-            var model = this.AccountService.GetRole(id);
-
-            var businessPermissionList = EnumHelper.GetItemValueList<EnumBusinessPermission>();
-            //this.ViewBag.BusinessPermissionList = new SelectList(businessPermissionList, "Key", "Value", string.Join(",", model.BusinessPermissionList.Select(p => (int)p)));
-
-            return View(model);
-        }
-
-        //
-        // POST: /Account/Role/Edit/5
-        //推荐
-        [HttpPost]
-        public ActionResult TuiJian(int id, FormCollection collection)
-        {
-            var model = this.AccountService.GetRole(id);
-            this.TryUpdateModel<Role>(model);
-            model.BusinessPermissionString = collection["BusinessPermissionList"];
-            this.AccountService.SaveRole(model);
-
-            return this.RefreshParent();
-        }
 
         // GET: /Account/Role/Edit/5
         //点评
-        public ActionResult DianPing(int id=1)
+        public ActionResult DianPing(int id,string Evaluate)
         {
-            var model = this.AccountService.GetRole(id);
+            Popular_recipesEntities ee = new Popular_recipesEntities();
 
-            var businessPermissionList = EnumHelper.GetItemValueList<EnumBusinessPermission>();
-            //this.ViewBag.BusinessPermissionList = new SelectList(businessPermissionList, "Key", "Value", string.Join(",", model.BusinessPermissionList.Select(p => (int)p)));
+            var li = ee.Menu.Where(g => g.MenuId == id).FirstOrDefault();
 
-            return View(model);
-        }
+            ViewData["CuisineName"] = ee.Cuisine.Where(p => p.CuisineId == id).FirstOrDefault().CuisineName;
 
-        //
-        // POST: /Account/Role/Edit/5
-        //点评
-        [HttpPost]
-        public ActionResult DianPing(int id, FormCollection collection)
-        {
-            var model = this.AccountService.GetRole(id);
-            this.TryUpdateModel<Role>(model);
-            model.BusinessPermissionString = collection["BusinessPermissionList"];
-            this.AccountService.SaveRole(model);
+            if(Evaluate!=null)
+            {
+                evaluate evaluate = new evaluate() { MenuId = id, Evaluate1 = Evaluate };
+                ee.evaluate.Add(evaluate);
+                ee.SaveChanges();
+            }
 
-            return this.RefreshParent();
+            return View(li);
         }
 
         // GET: /Account/Role/Edit/5
         //详细信息
         public ActionResult XiangXi(int id)
         {
-            var model = this.AccountService.GetRole(id);
+            Popular_recipesEntities ee = new Popular_recipesEntities();
+            Menu m= ee.Menu.Where(g => g.MenuId == id).FirstOrDefault();
 
-            var businessPermissionList = EnumHelper.GetItemValueList<EnumBusinessPermission>();
-            //this.ViewBag.BusinessPermissionList = new SelectList(businessPermissionList, "Key", "Value", string.Join(",", model.BusinessPermissionList.Select(p => (int)p)));
+            var li = ee.Menu.Where(g => g.MenuId == id).FirstOrDefault();
 
-            return View(model);
-        }
+            ViewData["CuisineName"] = ee.Cuisine.Where(p => p.CuisineId == m.CuisineId).FirstOrDefault().CuisineName;
 
-        //
-        // POST: /Account/Role/Edit/5
-        //详细信息
-        [HttpPost]
-        public ActionResult XiangXi(int id, FormCollection collection)
-        {
-            var model = this.AccountService.GetRole(id);
-            this.TryUpdateModel<Role>(model);
-            model.BusinessPermissionString = collection["BusinessPermissionList"];
-            this.AccountService.SaveRole(model);
-
-            return this.RefreshParent();
+            return View(li);
         }
 
         // GET: /Account/Role/Edit/5
         //编辑资料
-        public ActionResult Bianji(int id)
-        {
-            var model = this.AccountService.GetRole(id);
+        public ActionResult Bianji(int id,Menu mm,string cx)
+        { 
+            Popular_recipesEntities ee = new Popular_recipesEntities();
+            Menu m = ee.Menu.Where(g => g.MenuId == id).FirstOrDefault();
+            var li = ee.Menu.Where(g => g.MenuId == id).FirstOrDefault();
 
-            var businessPermissionList = EnumHelper.GetItemValueList<EnumBusinessPermission>();
-            //this.ViewBag.BusinessPermissionList = new SelectList(businessPermissionList, "Key", "Value", string.Join(",", model.BusinessPermissionList.Select(p => (int)p)));
+            ViewData["CuisineName"] = ee.Cuisine.Where(p => p.CuisineId == m.CuisineId).FirstOrDefault().CuisineName;
 
-            return View(model);
+            if (mm.MenuName!=null)
+            {
+                m.Money = mm.Money;
+                m.MenuName = mm.MenuName;
+                m.CookingSteps = mm.CookingSteps;
+                m.Kg = mm.Kg;
+                m.trait = mm.trait;
+                m.Money = mm.Money;
+
+                m.CuisineId=ee.Cuisine.Where(p => p.CuisineName == cx).FirstOrDefault().CuisineId;
+                
+                ee.SaveChanges();
+            }
+            
+
+            return View(li);
         }
 
-        //
-        // POST: /Account/Role/Edit/5
-        //编辑资料
-        [HttpPost]
-        public ActionResult Bianji(int id, FormCollection collection)
+        public ActionResult XinZengs(Menu m)
         {
-            var model = this.AccountService.GetRole(id);
-            this.TryUpdateModel<Role>(model);
-            model.BusinessPermissionString = collection["BusinessPermissionList"];
-            this.AccountService.SaveRole(model);
+            if (m != null)
+            {
+                Popular_recipesEntities popular = new Popular_recipesEntities();
+                popular.Menu.Add(m);
+                popular.SaveChanges();
+            }
 
-            return this.RefreshParent();
+            Popular_recipesEntities entities = new Popular_recipesEntities();
+            var li = (from g in entities.Cuisine select g).ToList();
+            ViewData["CuisineList"] = li;
+            return View();
         }
 
-        public ActionResult XinZeng()
+        public void TuiJian(int id)
         {
-            var businessPermissionList = EnumHelper.GetItemValueList<EnumBusinessPermission>();
-            this.ViewBag.BusinessPermissionList = new SelectList(businessPermissionList, "Key", "Value");
-
-            var model = new Role();
-            return View(model);
+            Popular_recipesEntities m = new Popular_recipesEntities();
+            Menu s=m.Menu.Where(p => p.MenuId == id).FirstOrDefault();
+            int i = s.tuijian ?? 0;
+            i++;
+            s.tuijian = i;
+            m.SaveChanges();
+            XinZengs(null);
         }
+
+
     }
 }

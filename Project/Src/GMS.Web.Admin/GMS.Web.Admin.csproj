@@ -1385,7 +1385,7 @@
     <Content Include="Areas\Account\Views\Xiang\Index.cshtml" />
     <Content Include="Areas\Account\Views\Yue\Index.cshtml" />
     <Content Include="Areas\Account\Views\Zhe\Index.cshtml" />
-    <Content Include="Areas\Account\Views\Shares\XinZeng.cshtml" />
+    <Content Include="Areas\Account\Views\Shares\XinZengs.cshtml" />
     <Content Include="Areas\OA\Views\Staff\ReadOny.cshtml" />
     <Content Include="Areas\OA\Views\Staff\Add.cshtml" />
     <Content Include="Areas\OA\Views\Branch\Bj.cshtml" />

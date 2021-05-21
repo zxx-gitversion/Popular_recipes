@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data.Objects;
+//using System.Data.Objects;
 using System.Linq;
 using EntityFramework.Extensions;
 using GMS.Account.Contract;
@@ -24,13 +24,13 @@ namespace GMS.Account.BLL
             {
                 using (var dbContext = new AccountDbContext())
                 {
-                    //如果有超时的，启动超时处理
-                    var timeoutList = dbContext.FindAll<LoginInfo>(p => EntityFunctions.DiffMinutes(DateTime.Now, p.LastAccessTime) > _UserLoginTimeoutMinutes);
-                    if (timeoutList.Count > 0)
-                    {
-                        foreach (var li in timeoutList)
-                            dbContext.LoginInfos.Remove(li);
-                    }
+                    ////如果有超时的，启动超时处理
+                    //var timeoutList = dbContext.FindAll<LoginInfo>(p => EntityFunctions.DiffMinutes(DateTime.Now, p.LastAccessTime) > _UserLoginTimeoutMinutes);
+                    //if (timeoutList.Count > 0)
+                    //{
+                    //    foreach (var li in timeoutList)
+                    //        dbContext.LoginInfos.Remove(li);
+                    //}
 
                     dbContext.SaveChanges();
 

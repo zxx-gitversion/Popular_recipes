@@ -1,5 +1,7 @@
-﻿
-@model GMS.Web.Admin.Menu
+﻿@using GMS.Framework.Contract
+@using GMS.Framework.Web.Controls
+@using GMS.Account.Contract
+@model Role
 @{
     Layout = "~/Views/Shared/_Layout.Edit.cshtml";
 }
@@ -22,60 +24,67 @@
             <div class="control-group">
                 <label class="control-label"><span class="required">*</span>菜系：</label>
                 <div class="controls">
-                    <input readonly type="text" value="@ViewData["CuisineName"]"/>
+                    <select name="CuisineId">
+                        @{
+                            List<GMS.Web.Admin.Cuisine> li = (List<GMS.Web.Admin.Cuisine>)ViewData["CuisineList"];
+
+                            foreach (var item in li)
+                            {
+                                <option value="@item.CuisineId">@item.CuisineName</option>
+                            }
+                        }
+                    </select>
+                   
                 </div>
             </div>
 
             <div class="control-group">
                 <label class="control-label">菜名：</label>
                 <div class="controls">
-                    <input readonly type="text" value="@Model.MenuName"/>
+                    <input type="text" name="MenuName" />
                 </div>
             </div>
 
             <div class="control-group">
                 <label class="control-label">口味特点：</label>
                 <div class="controls">
-                    <template>
-                        @Model.CookingSteps
-                                    </template>
+                    <input type="text" name="CookingSteps" />
                 </div>
             </div>
 
             <div class="control-group">
                 <label class="control-label">食材定量：</label>
                 <div class="controls">
-                    <input readonly type="text" value="@Model.Kg" />
+                    <textarea name="miaoshu" style="width: 563px; margin: 0px; height: 190px;"></textarea>
                 </div>
             </div>
 
             <div class="control-group">
                 <label class="control-label">烹饪步骤：</label>
                 <div class="controls">
-                    <textarea readonly style="width: 563px; margin: 0px; height: 190px;">@Model.trait</textarea>
+                    <textarea name="trait" style="width: 563px; margin: 0px; height: 190px;"></textarea>
                 </div>
             </div>
 
             <div class="control-group">
                 <label class="control-label">供应商信息：</label>
                 <div class="controls">
-                    <textarea readonly style="width: 563px; margin: 0px; height: 190px;">
-                     清澈的溪水涓涓。
+                    <textarea style="width: 563px; margin: 0px; height: 190px;"> 一九六零年，七月。
+                         清澈的溪水涓涓。
     　　树上的知了正不停的叫唤，偶尔有一阵风吹来，知了叫的更欢了。
     　　酷暑的正午。　　本来各家各户应该在家里歇息的，可这个时候，溪边的一个山坡上，牛罗村十二岁以上，五十岁以下的男女老少正在村长的带领下，拿着木棍、扁担、锄头等农具，和下新村的人在对峙。
     　　“你们让不让开？”　　“不让，凭啥让！”　　“再不让开，就别怪我们不客气了！”　　“来啊，谁怕谁呢！”　　“就是，这是我们牛罗村，后面的牛罗山是我们村的，你们到我们村里抢水，还要不要脸了！”
     　　两个村的人已经对峙了有两个多小时了，两边寸步不让，一开始还骂骂咧咧的，后面双方嗓子都喊干了，就这么瞪着对面。　　两个村子之所以对峙，不为别的，就是为了水。
     　　田里的稻苗眼看就要抽穗了，却偏偏两个月没下雨了。　　有经验的老农都感觉得出来，这是要遇上大旱啦。　　面朝黄土背朝天，为了就是田地里的作物，不下雨可怎么行，粮食减产，不说上交公社了，自己村里人都要饿肚子。
     　　牛罗村的人一听要遇上大旱，立马就紧张起来，果然，没过半个月，就有人半夜来偷水了。　　发现后，牛罗村的人立马组织人夜里巡逻。
-                    </textarea>
+                   </textarea>
                 </div>
             </div>
 
             <div class="control-group">
                 <label class="control-label">价格：</label>
                 <div class="controls">
-                    <input readonly type="text" value="@Model.Money" />
-
+                    <input type="text" name="Money" />
                 </div>
             </div>
 
