@@ -63,7 +63,7 @@ namespace GMS.Web.Admin.Areas.Account.Controllers
         public ActionResult ModifyPwd(FormCollection collection)
         {
             var model = this.AccountService.GetUser(this.LoginInfo.UserID);
-            this.TryUpdateModel<User>(model);
+            //this.TryUpdateModel<User>(model);
 
             try
             {
@@ -81,6 +81,7 @@ namespace GMS.Web.Admin.Areas.Account.Controllers
         
         public ActionResult Index()
         {
+            
             return View();
         }
     }
