@@ -1,5 +1,6 @@
 ﻿@using GMS.Core.Config
 @using GMS.Web.Admin.Common
+@model List<GMS.Web.Admin.Cuisine>
 @{
     @*var adminMenuConfig = CachedConfigContext.Current.AdminMenuConfig;
     var permissions = AdminUserContext.Current.LoginInfo.BusinessPermissionList.Select(p=>p.ToString());*@
@@ -38,14 +39,24 @@
                 <span class="arrow open"></span>
             </a>
             <ul class="sub" style="display: block;">
-                <li><a href="/Account/Lu/Index" title="添加修改删除鲁菜">鲁菜</a></li>
-                <li><a href="/Account/Lu/Index" title="添加修改删除川菜">川菜</a></li>
-                <li><a href="/Account/Lu/Index" title="添加修改删除粤菜">粤菜</a></li>
-                <li><a href="/Account/Lu/Index" title="添加修改删除闽菜">闽菜</a></li>
-                <li><a href="/Account/Lu/Index" title="添加修改删除苏菜">苏菜</a></li>
-                <li><a href="/Account/Lu/Index" title="添加修改删除浙菜">浙菜</a></li>
-                <li><a href="/Account/Lu/Index" title="添加修改删除湘菜">湘菜</a></li>
-                <li><a href="/Account/Lu/Index" title="添加修改删除徽菜">徽菜</a></li>
+
+                @{
+
+                    List<GMS.Web.Admin.Cuisine> list = (List<GMS.Web.Admin.Cuisine>)Session["caixi"];
+                    foreach (var g in list )
+                    {
+                        <li><a href="/Account/Lu/Index?@g.CuisineId" title="添加修改删除川菜">@g.CuisineName</a></li>
+                    }
+                }
+
+                @* <li><a href="/Account/Lu/Index" title="添加修改删除鲁菜">鲁菜</a></li>
+        <li><a href="/Account/Lu/Index" title="添加修改删除川菜">川菜</a></li>
+        <li><a href="/Account/Lu/Index" title="添加修改删除粤菜">粤菜</a></li>
+        <li><a href="/Account/Lu/Index" title="添加修改删除闽菜">闽菜</a></li>
+        <li><a href="/Account/Lu/Index" title="添加修改删除苏菜">苏菜</a></li>
+        <li><a href="/Account/Lu/Index" title="添加修改删除浙菜">浙菜</a></li>
+        <li><a href="/Account/Lu/Index" title="添加修改删除湘菜">湘菜</a></li>
+        <li><a href="/Account/Lu/Index" title="添加修改删除徽菜">徽菜</a></li>*@
             </ul>
         </li>
         <li class="has-sub">
