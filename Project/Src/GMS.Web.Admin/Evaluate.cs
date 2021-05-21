@@ -12,7 +12,7 @@ namespace GMS.Web.Admin
     using System;
     using System.Collections.Generic;
     
-    public partial class Evaluate
+    public partial class evaluate
     {
         public int EvaluateId { get; set; }
         public int MenuId { get; set; }
