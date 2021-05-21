@@ -1,5 +1,7 @@
-﻿using System.Web.Mvc;
+﻿using System.Collections.Generic;
 using System.Linq;
+using System.Web.Mvc;
+
 
 namespace GMS.Web.Admin.Controllers
 {
@@ -10,15 +12,13 @@ namespace GMS.Web.Admin.Controllers
 
         public ActionResult Index()
         {
+            string sql = string.Format("select * from Cuisine");
             Popular_recipesEntities pop = new Popular_recipesEntities();
-            var list = (from p in pop.Cuisine select p);
-            ViewData["list"] = list;
+            pop.Configuration.LazyLoadingEnabled = false;
+            List<Cuisine> list = pop.Cuisine.SqlQuery(sql).ToList();
+            Session.Add("caixi", list);
             return RedirectToAction("Index", "Auth", new { Area = "Account" });
         }
-        public ActionResult _Menu(){
-            Popular_recipesEntities pop = new Popular_recipesEntities();
-            var list = (from p in pop.Cuisine select p);
-            return View(list);
-         }
+        
     }
 }

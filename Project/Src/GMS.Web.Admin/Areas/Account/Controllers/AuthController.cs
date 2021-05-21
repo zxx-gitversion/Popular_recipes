@@ -63,7 +63,11 @@ namespace GMS.Web.Admin.Areas.Account.Controllers
         public ActionResult ModifyPwd(FormCollection collection)
         {
             var model = this.AccountService.GetUser(this.LoginInfo.UserID);
+<<<<<<< HEAD
+         /*   this.TryUpdateModel<User>(model);*/
+=======
             //this.TryUpdateModel<User>(model);
+>>>>>>> 7eb0e0dd05bb0efffa25e23fd98430d28faae9a5
 
             try
             {

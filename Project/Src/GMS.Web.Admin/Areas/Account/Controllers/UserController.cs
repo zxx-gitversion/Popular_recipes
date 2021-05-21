@@ -46,7 +46,11 @@ namespace GMS.Web.Admin.Areas.Account.Controllers
 
             try
             {
+<<<<<<< HEAD
+                /*this.AccountService.SaveUser(model);*/
+=======
                 //this.AccountService.SaveUser(model);
+>>>>>>> 7eb0e0dd05bb0efffa25e23fd98430d28faae9a5
             }
             catch (BusinessException e)
             {
@@ -81,7 +85,11 @@ namespace GMS.Web.Admin.Areas.Account.Controllers
         public ActionResult Edit(int id, FormCollection collection)
         {
             var model = this.AccountService.GetUser(id);
+<<<<<<< HEAD
+            /*this.TryUpdateModel<User>(model);*/
+=======
             //this.TryUpdateModel<User>(model);
+>>>>>>> 7eb0e0dd05bb0efffa25e23fd98430d28faae9a5
             this.AccountService.SaveUser(model);
 
             return this.RefreshParent();
