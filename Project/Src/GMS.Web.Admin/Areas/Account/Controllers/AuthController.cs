@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Web.Mvc;
-using GMS.Account.Contract;
 using GMS.Framework.Contract;
 using GMS.Framework.Web;
 using GMS.Web.Admin.Common;
+using System.Linq;
 
 namespace GMS.Web.Admin.Areas.Account.Controllers
 {
@@ -63,7 +63,11 @@ namespace GMS.Web.Admin.Areas.Account.Controllers
         public ActionResult ModifyPwd(FormCollection collection)
         {
             var model = this.AccountService.GetUser(this.LoginInfo.UserID);
+<<<<<<< HEAD
          /*   this.TryUpdateModel<User>(model);*/
+=======
+            //this.TryUpdateModel<User>(model);
+>>>>>>> 7eb0e0dd05bb0efffa25e23fd98430d28faae9a5
 
             try
             {
@@ -81,6 +85,8 @@ namespace GMS.Web.Admin.Areas.Account.Controllers
         
         public ActionResult Index()
         {
+            Popular_recipesEntities popular = new Popular_recipesEntities();
+            var li = from p in popular.Cuisine select p;
             return View();
         }
     }
