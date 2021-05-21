@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using System.Linq;
 
 namespace GMS.Web.Admin.Controllers
 {
@@ -9,12 +10,15 @@ namespace GMS.Web.Admin.Controllers
 
         public ActionResult Index()
         {
+            Popular_recipesEntities pop = new Popular_recipesEntities();
+            var list = (from p in pop.Cuisine select p);
+            ViewData["list"] = list;
             return RedirectToAction("Index", "Auth", new { Area = "Account" });
         }
         public ActionResult _Menu(){
             Popular_recipesEntities pop = new Popular_recipesEntities();
             var list = (from p in pop.Cuisine select p);
-            return (list);
-            }
+            return View(list);
+         }
     }
 }
