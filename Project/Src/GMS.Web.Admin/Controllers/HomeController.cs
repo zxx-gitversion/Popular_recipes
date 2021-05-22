@@ -12,7 +12,6 @@ namespace GMS.Web.Admin.Controllers
         {
             string sql = string.Format("select * from Cuisine");
             Popular_recipesEntities pop = new Popular_recipesEntities();
-            pop.Configuration.LazyLoadingEnabled = false;
             List<Cuisine> list = pop.Cuisine.SqlQuery(sql).ToList();
             Session.Add("caixi", list);
             return RedirectToAction("Index", "Auth", new { Area = "Account" });

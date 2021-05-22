@@ -11,7 +11,7 @@
         <div>
             @if (true)
             {
-                <a class="btn red" id="delete" href="javascript:;">
+                <a class="btn red" id="delete" href="javascript:">
                     <i class="icon-trash icon-white"></i>删除
                 </a>
                 <a class="btn blue thickbox" title='添加新菜' href="/Account/Shares/XinZengs?TB_iframe=true&height=600&width=800">
@@ -78,7 +78,7 @@
     <tbody>
 
         @{
-            List<GMS.Web.Admin.Menu> li = (List<GMS.Web.Admin.Menu>)ViewData["MenuList"];
+            List<GMS.Web.Admin.Menu> li = (List<GMS.Web.Admin.Menu>)Session["MenuList"];
 
             foreach (var item in li)
             {

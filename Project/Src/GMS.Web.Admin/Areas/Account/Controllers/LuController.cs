@@ -1,9 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Web.Mvc;
 using GMS.Account.Contract;
 using GMS.Framework.Utility;
 using GMS.Web.Admin.Common;
+
 
 namespace GMS.Web.Admin.Areas.Account.Controllers
 {
@@ -27,8 +29,8 @@ namespace GMS.Web.Admin.Areas.Account.Controllers
             //    ViewData["MenuList"] = li;
             //}
             var list = s.Menu.Where(g => g.CuisineId == id).ToList();
-            ViewData["MenuList"] = list;
-
+            Session["MenuList"] = list;
+            Session["MenuId"] = id;
             return View();
         }
         // GET: /Account/Role/Edit/5
@@ -55,6 +57,25 @@ namespace GMS.Web.Admin.Areas.Account.Controllers
             this.AccountService.SaveRole(model);
 
             return this.RefreshParent();
+        }
+
+        public ActionResult Delete(int[]ids)
+        {
+            Popular_recipesEntities s = new Popular_recipesEntities();
+
+            if(ids!=null)
+            {
+                foreach (int item in ids)
+                    s.Menu.Remove(s.Menu.Where(j => j.MenuId == item).FirstOrDefault());
+
+                s.SaveChanges();
+            }
+
+            int id = (int)Session["MenuId"];
+            var list = s.Menu.Where(g => g.CuisineId == id).ToList();
+            Session["MenuList"] = list;
+
+            return Redirect("Index?id="+id);
         }
     }
 }
