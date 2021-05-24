@@ -76,6 +76,7 @@ namespace GMS.Web.Admin.Areas.Account.Controllers
             Session["MenuList"] = list;
 
             return Redirect("Index?id="+id);
+
         }
     }
 }

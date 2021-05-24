@@ -18,13 +18,13 @@
         @using (Html.BeginForm(null, null, null, FormMethod.Get, new { id = "search" }))
         { 
         <div class="dataTables_filter">
-            <label>
+            @*<label>
                 <button type="submit" class="btn">搜索 <i class="icon-search"></i></button>
-            </label>
-            <label style="margin-left:80px;">
+            </label>*@
+            @*<label style="margin-left:80px;">
                 <span>名称：</span>
                 @Html.TextBox("Name", null, new { @class = "m-wrap small" })
-            </label>
+            </label>*@
 
             <label>
                 <span>预算资金：</span>
@@ -58,7 +58,7 @@
                 名称
             </th>
             <th>
-                制定人/部门
+                制定人/单位
             </th>
             <th>
                 需求简介

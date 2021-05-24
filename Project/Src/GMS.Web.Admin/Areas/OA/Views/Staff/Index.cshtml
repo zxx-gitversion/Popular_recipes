@@ -17,7 +17,7 @@
     <div class="span8">
         @using (Html.BeginForm(null, null, null, FormMethod.Get, new { id = "search" }))
         { 
-        <div class="dataTables_filter">
+        @*<div class="dataTables_filter">
             <label>
                 <button type="submit" class="btn">搜索 <i class="icon-search"></i></button>
              </label>
@@ -25,7 +25,7 @@
                 <span>食谱名：</span>
                 @Html.TextBox("Name", null, new { @class = "m-wrap small" })
             </label>
-        </div>
+        </div>*@
         }
     </div>
 </div>
@@ -45,9 +45,6 @@
             </th>
             <th>
                 食谱名
-            </th>
-            <th>
-                部门
             </th>
             <th>
                 制定人/单位
@@ -88,9 +85,6 @@
             </td>
             <td>
                 哈哈哈哈哈哈
-            </td>
-            <td>
-                哈哈哈哈哈哈哈
             </td>
             <td>
                 <a class="btn mini purple thickbox" title='食谱详细信息' href="/OA/Staff/ReadOny/@i?TB_iframe=true&height=600&width=700">
